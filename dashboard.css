@@ -1,0 +1,70 @@
+html {
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  padding:1vw 1vh;
+}
+
+.card-panel {
+  height: 200px;
+  min-width:200px;
+    padding: 2vw;
+    margin:auto;
+    margin-top: 1vh;
+        border-radius: 5px;
+        
+}
+
+.panel-background-0 {
+  background-color: #334455;
+}
+.panel-background-1 {
+  background-color: #418157;
+}
+
+.panel-background-2 {
+  background-color: #a57a39;
+}
+
+.panel-background-3 {
+  background-color: #924632;
+}
+.result {
+  font-size: 3em;
+}
+
+.text-white {color:#fff;}
+.fill-white {fill:white;}
+.gauge-container {
+  width: 150px;
+  height: 150px;
+  display: block;
+  padding: 10px;
+}
+
+.gauge-container > .gauge > .dial {
+  stroke: #334455;
+  stroke-width: 20;
+}
+
+.gauge-container > .gauge > .value {
+  stroke-width: 50;
+}
+
+.gauge-container > .gauge > .value-text {
+  fill: #eee;
+}
+
+path {
+  stroke-width: 2;
+  fill: none;
+}
+
+path,
+gauge-container > .gauge > .value {
+  stroke: #c9de3c;
+  }
