@@ -6,17 +6,16 @@ body {
   width: 100%;
   height: 100%;
   background-color: #eee;
-  padding:1vw 1vh;
+  padding: 1vw 1vh;
 }
 
 .card-panel {
   height: 200px;
-  min-width:200px;
-    padding: 2vw;
-    margin:auto;
-    margin-top: 1vh;
-        border-radius: 5px;
-        
+  min-width: 200px;
+  padding: 2vw;
+  margin: auto;
+  margin-top: 1vh;
+  border-radius: 5px;
 }
 
 .panel-background-0 {
@@ -33,12 +32,23 @@ body {
 .panel-background-3 {
   background-color: #924632;
 }
+
+.panel-background-alert {
+  background-color: darkred;
+}
+.threshold {
+  margin-top: 0.1 rem;
+}
 .result {
   font-size: 3em;
 }
 
-.text-white {color:#fff;}
-.fill-white {fill:white;}
+.text-white {
+  color: #fff;
+}
+.fill-white {
+  fill: white;
+}
 .gauge-container {
   width: 150px;
   height: 150px;
@@ -67,4 +77,4 @@ path {
 path,
 gauge-container > .gauge > .value {
   stroke: #c9de3c;
-  }
+}

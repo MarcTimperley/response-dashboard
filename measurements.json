@@ -1,0 +1,71 @@
+[
+  {
+    "name": "localhost",
+    "location": "board1",
+    "url": "/",
+    "chartType": "gauge"
+  },
+  {
+    "name": "localhost",
+    "location": "board0",
+    "url": "/",
+    "chartType": "spark",
+    "data": []
+  },
+  {
+    "name": "cpu",
+    "location": "board2",
+    "url": "../api/measurements/cpu",
+    "chartType": "gauge",
+    "value": "os1",
+    "max": 100,
+    "unit": "%"
+  },
+  {
+    "name": "node heap",
+    "location": "board5",
+    "url": "../api/measurements/mem",
+    "chartType": "gauge",
+    "value": "used",
+    "unit": "%",
+    "max": 120
+  },
+  {
+    "name": "node mem",
+    "location": "board6",
+    "url": "../api/measurements/mem",
+    "chartType": "gauge",
+    "value": "osUsed",
+    "unit": "%",
+    "max": "120"
+  },
+  {
+    "name": "cpu",
+    "location": "board4",
+    "url": "../api/measurements/cpu",
+    "value": "os1",
+    "max": 100,
+    "unit": "%",
+    "chartType": "spark",
+    "data": []
+  },
+  {
+    "name": "designs94.com",
+    "location": "board3",
+    "url": "/api/proxy/url?url=http://designs94.com",
+    "value": "response",
+    "chartType": "gauge",
+    "max": 300,
+    "threshold": 100
+  },
+  {
+    "name": "designs94.com spark",
+    "location": "board7",
+    "url": "/api/proxy/url?url=http://designs94.com",
+    "value": "response",
+    "chartType": "spark",
+    "max": 300,
+    "threshold": 100,
+    "data": []
+  }
+]

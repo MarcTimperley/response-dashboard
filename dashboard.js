@@ -1,81 +1,37 @@
 /* jslint browser: true, devel: true, node: true */
 /* global $, Gauge, d3 */
-const measurements = [{
-  'name': 'localhost',
-  'location': 'board1',
-  'url': '/',
-  'chartType': 'gauge'
-}, {
-  'name': 'localhost',
-  'location': 'board0',
-  'url': '/',
-  'chartType': 'spark',
-  'data': []
-}, {
-  'name': 'cpu',
-  'location': 'board2',
-  'url': '../api/measurements/cpu',
-  'chartType': 'gauge',
-  'value': 'os1',
-  'max': 100,
-  'unit': '%'
-}, {
-  'name': 'node heap',
-  'location': 'board5',
-  'url': '../api/measurements/mem',
-  'chartType': 'gauge',
-  'value': 'used',
-  'unit': '%',
-  'max': 120
-}, {
-  'name': 'node mem',
-  'location': 'board6',
-  'url': '../api/measurements/mem',
-  'chartType': 'gauge',
-  'value': 'osUsed',
-  'unit': '%',
-  'max': '120'
-}, {
-  'name': 'cpu',
-  'location': 'board4',
-  'url': '../api/measurements/cpu',
-  'value': 'os1',
-  'max': 100,
-  'unit': '%',
-  'chartType': 'spark',
-  'data': []
-}, {
-  'name': 'designs94.com',
-  'location': 'board3',
-  'url': '/api/proxy/url?url=http://designs94.com',
-  'value': 'response',
-  'chartType': 'gauge'
-}]
 
 let gauge = {}
 let graph = {}
 const width = 180
-const height = 160
-const interval = 10000
-// const cpu = require('./measurements/cpu.js')
+const height = 140
+const interval = 5000
 let x
 let y
 let line
+let alerts = []
 
 $(function setup() {
-  setupDash()
-  checkmeasurements()
-  requestInterval(checkmeasurements, interval)
+  $.get({
+    url: '/measurements.json',
+    cache: false,
+    complete: function(returndata) {
+      const measurements = JSON.parse(returndata.responseText)
+      if (measurements) {
+        setupDash(measurements)
+        requestInterval(checkmeasurements, interval, measurements)
+      }
+    }
+  })
 })
 
-const setupDash = () => {
+const setupDash = (measurements) => {
   measurements.forEach((i, v) => {
     $('#boards').append(`
         <div class="card-panel panel-background-${v % 4} text-white" 
         id="board${v}">
         board${v}
-        </div>
-  `
+        </div>`
     )
   })
   measurements.forEach((currentServer) => {
@@ -93,7 +49,6 @@ const setupDash = () => {
           label: (value) => { return `${Math.floor(value * scale)} ${unit || 'ms'}` }
         })
     } else if (chartType === 'spark') {
-      console.log(`location ${location} has max of ${max}`)
       $('#' + location).append(`<div id="${location}spark" class="aGraph"></div>`)
       graph[location] = d3.select('#' + location + 'spark').append('svg:svg').attr('width', width + 'px').attr('height', height + 'px')
       let data = currentServer.data
@@ -108,36 +63,39 @@ const setupDash = () => {
 }
 
 const pingServer = (server) => {
-  let timer = 0
-  const { chartType, location, data, url, value } = server
-
+  // let timer = 0
+  const { chartType, location, data, url, value, threshold, name } = server
+  let { unit } = server
+  if (!unit) unit = 'ms'
   $.get({
     url: url,
     //   cache: false,
     start_time: new Date().getTime(),
     complete: function(returnData) {
-      timer = (new Date().getTime() - this.start_time)
-
+      let result
+      if (url.match(/\/api\//gi)) {
+        result = JSON.parse(returnData.responseText)[value]
+      } else {
+        result = (new Date().getTime() - this.start_time)
+      }
+      if (threshold && result > threshold) {
+        $('#' + location).addClass('panel-background-alert')
+        alerts.unshift({ type: 'alert', measure: name, value: result + unit, threshold: threshold + unit })
+        $('#alertsRecent').prepend(`<div class="threshold">${new Date().toLocaleString()}: ${name} - ${result + unit} (${threshold + unit})</div>`)
+      } else {
+        $('#' + location).removeClass('panel-background-alert')
+      }
       if (chartType === 'gauge') {
-        if (url.match(/\/api\//gi)) {
-          if (returnData.responseText) gauge[location].setValueAnimated(JSON.parse(returnData.responseText)[value], 1)
-        } else {
-          gauge[location].setValueAnimated(timer, 1)
-        }
+        gauge[location].setValueAnimated(result, 1)
       } else if (chartType === 'spark') {
-        if (url.match(/\/api\//gi)) {
-          data.push(JSON.parse(returnData.responseText)[value])
-          displaySpark(server, x, y, line)
-        } else {
-          data.push(timer)
-          displaySpark(server, x, y, line)
-        }
+        data.push(result)
+        displaySpark(server, x, y, line)
       }
     }
   })
 }
 
-const checkmeasurements = () => {
+const checkmeasurements = (measurements) => {
   measurements.forEach((currentServer) => pingServer(currentServer))
 }
 
@@ -154,60 +112,23 @@ const displaySpark = (server, x, y, line) => {
   }
 }
 
-const requestInterval = (fn, delay) => {
-  var requestAnimFrame = (() => {
+const requestInterval = (fn, delay, measurements) => {
+  const requestAnimFrame = (() => {
     return window.requestAnimationFrame || function(callback, element) {
       window.setTimeout(callback, 1000 / 60)
     }
   })()
-  var start = new Date()
-  var handle = {}
+  let start = new Date()
+  let handle = {}
 
   const loop = () => {
     handle.value = requestAnimFrame(loop)
     const delta = new Date() - start
     if (delta >= delay) {
-      fn.call()
+      fn.call(measurements, measurements)
       start = new Date()
     }
   }
   handle.value = requestAnimFrame(loop)
   return handle
 }
-/*
-const clearRequestInterval = (handle) => {
-  if (window.cancelAnimationFrame) {
-    window.cancelAnimationFrame(handle.value)
-  } else {
-    window.clearInterval(handle)
-  }
-}
-const requestTimeout = (fn, delay) => {
-  var requestAnimFrame = (() => {
-    return window.requestAnimationFrame || function(callback, element) {
-      window.setTimeout(callback, 1000 / 60)
-    }
-  })()
-  var start = new Date().getTime()
-  var handle = {}
-
-  const loop = () => {
-    var current = new Date().getTime()
-    var delta = current - start
-    if (delta >= delay) {
-      fn.call()
-    } else {
-      handle.value = requestAnimFrame(loop)
-    }
-  }
-  handle.value = requestAnimFrame(loop)
-  return handle
-}
-
-const clearRequestTimeout = (handle) => {
-  if (window.cancelAnimationFrame) {
-    window.cancelAnimationFrame(handle.value)
-  } else {
-    window.clearTimeout(handle)
-  }
-*/

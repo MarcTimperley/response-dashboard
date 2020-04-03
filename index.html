@@ -13,7 +13,6 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <link href="./materialize.css" rel="stylesheet" />
     <link href="./dashboard.css" rel="stylesheet" />
 
     <script src="./gauge.js"></script>
@@ -29,6 +28,19 @@
       </nav>
     </div>
     <br />
-    <div class="row" id = "boards"></div>
+    <div class="container">
+      <div class="row" id="boards"></div>
+      <hr/>
+      <div class="row">
+        <div class="col-sm">
+          Current Alerts
+          <div id="alertsCurrent"></div>
+        </div>
+        <div class="col-sm">
+          Recent Alerts
+          <div id="alertsRecent"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
