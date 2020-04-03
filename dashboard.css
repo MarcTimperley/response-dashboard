@@ -8,7 +8,14 @@ body {
   background-color: #eee;
   padding: 1vw 1vh;
 }
-
+.header {
+  position: fixed;
+  z-index: 2;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
+  height: 50px;
+}
 .card-panel {
   height: 200px;
   min-width: 200px;
@@ -16,25 +23,11 @@ body {
   margin: auto;
   margin-top: 1vh;
   border-radius: 5px;
+  color: #333;
 }
-
-.panel-background-0 {
-  background-color: #334455;
-}
-.panel-background-1 {
-  background-color: #418157;
-}
-
-.panel-background-2 {
-  background-color: #a57a39;
-}
-
-.panel-background-3 {
-  background-color: #924632;
-}
-
-.panel-background-alert {
-  background-color: darkred;
+.boards {
+  top: 60px;
+  position: relative;
 }
 .threshold {
   margin-top: 0.1 rem;
@@ -42,7 +35,10 @@ body {
 .result {
   font-size: 3em;
 }
-
+.alerts-recent{
+  height:30vh;
+  overflow-y: scroll;
+}
 .text-white {
   color: #fff;
 }
@@ -66,7 +62,7 @@ body {
 }
 
 .gauge-container > .gauge > .value-text {
-  fill: #eee;
+  fill: #333;
 }
 
 path {
@@ -76,5 +72,5 @@ path {
 
 path,
 gauge-container > .gauge > .value {
-  stroke: #c9de3c;
+  stroke: #76a6b9;
 }

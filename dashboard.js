@@ -3,13 +3,14 @@
 
 let gauge = {}
 let graph = {}
-const width = 180
+const width = 160
 const height = 140
 const interval = 5000
 let x
 let y
 let line
 let alerts = []
+let alertsCurrent = {}
 
 $(function setup() {
   $.get({
@@ -28,9 +29,8 @@ $(function setup() {
 const setupDash = (measurements) => {
   measurements.forEach((i, v) => {
     $('#boards').append(`
-        <div class="card-panel panel-background-${v % 4} text-white" 
-        id="board${v}">
-        board${v}
+        <div class="card-panel" id="board${v}">
+          board${v}
         </div>`
     )
   })
@@ -64,9 +64,10 @@ const setupDash = (measurements) => {
 
 const pingServer = (server) => {
   // let timer = 0
-  const { chartType, location, data, url, value, threshold, name } = server
-  let { unit } = server
+  const { chartType, location, data, url, value, name } = server
+  let { unit, threshold } = server
   if (!unit) unit = 'ms'
+  if (!threshold) threshold = 100
   $.get({
     url: url,
     //   cache: false,
@@ -78,18 +79,30 @@ const pingServer = (server) => {
       } else {
         result = (new Date().getTime() - this.start_time)
       }
-      if (threshold && result > threshold) {
-        $('#' + location).addClass('panel-background-alert')
-        alerts.unshift({ type: 'alert', measure: name, value: result + unit, threshold: threshold + unit })
-        $('#alertsRecent').prepend(`<div class="threshold">${new Date().toLocaleString()}: ${name} - ${result + unit} (${threshold + unit})</div>`)
+      $('#' + location).css('background-color', shadeBackground(result / threshold))
+      if (result > threshold) {
+        // $('#' + location).addClass('panel-background-alert')
+        let alert = { type: 'alert', measure: name, value: result + unit, threshold: threshold + unit }
+        if (!alertsCurrent[name]) {
+          alertsCurrent[name] = { startTime: new Date() }
+        }
+        alerts.unshift(alert)
+        $('#alertsRecent').prepend(`<div class="threshold threshold-recent">${new Date().toLocaleString()}: ${name} - ${result + unit} (>${threshold + unit})</div>`)
       } else {
-        $('#' + location).removeClass('panel-background-alert')
+        // $('#' + location).removeClass('panel-background-alert')
+        if (alertsCurrent[name]) delete alertsCurrent[name]
       }
+      let alertsCurrentHTML = ''
+      for (let [i, v] of Object.entries(alertsCurrent)) {
+        const duration = Math.floor((new Date() - v.startTime) / 1000)
+        alertsCurrentHTML += `<div class="threshold threshold-current">${i} ${duration.toLocaleString()}s</div>`
+      }
+      $('#alertsCurrent').html(alertsCurrentHTML)
       if (chartType === 'gauge') {
         gauge[location].setValueAnimated(result, 1)
       } else if (chartType === 'spark') {
         data.push(result)
-        displaySpark(server, x, y, line)
+        displaySpark(server, x, line)
       }
     }
   })
@@ -99,7 +112,7 @@ const checkmeasurements = (measurements) => {
   measurements.forEach((currentServer) => pingServer(currentServer))
 }
 
-const displaySpark = (server, x, y, line) => {
+const displaySpark = (server, x, line) => {
   graph[server.location].selectAll('path')
     .data([server.data])
     .attr('transform', 'translate(' + x(1) + ')')
@@ -131,4 +144,10 @@ const requestInterval = (fn, delay, measurements) => {
   }
   handle.value = requestAnimFrame(loop)
   return handle
+}
+
+const shadeBackground = (percent) => {
+  if (percent > 1) percent = 1
+  const hue = ((1 - percent) * 120).toString(10)
+  return ['hsl(', hue, ',100%,65%)'].join('')
 }

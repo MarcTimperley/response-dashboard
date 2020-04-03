@@ -40,16 +40,6 @@
     "max": "120"
   },
   {
-    "name": "cpu",
-    "location": "board4",
-    "url": "../api/measurements/cpu",
-    "value": "os1",
-    "max": 100,
-    "unit": "%",
-    "chartType": "spark",
-    "data": []
-  },
-  {
     "name": "designs94.com",
     "location": "board3",
     "url": "/api/proxy/url?url=http://designs94.com",
@@ -60,7 +50,7 @@
   },
   {
     "name": "designs94.com spark",
-    "location": "board7",
+    "location": "board4",
     "url": "/api/proxy/url?url=http://designs94.com",
     "value": "response",
     "chartType": "spark",
