@@ -39,6 +39,14 @@ body {
   height:30vh;
   overflow-y: scroll;
 }
+.alerts-current{
+  height:30vh;
+  overflow-y: scroll;
+}
+.alerts-heading{
+  font-size:1.3em;
+}
+
 .text-white {
   color: #fff;
 }

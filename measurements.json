@@ -57,5 +57,15 @@
     "max": 300,
     "threshold": 100,
     "data": []
+  },
+  {
+    "name": "marctimperley.com",
+    "location": "board7",
+    "url": "/api/proxy/url?url=http://marctimperley.com",
+    "value": "response",
+    "chartType": "spark",
+    "max": 700,
+    "threshold": 400,
+    "data": []
   }
 ]

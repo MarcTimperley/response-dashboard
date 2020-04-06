@@ -2,11 +2,9 @@
 Performance measurement dashboard with configurable metrics and end-point monitoring. Ideally suited to API microservices.
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![pipeline status](https://github.com/MarcTimperley/dashboard/badges/master/pipeline.svg)](https://gitlab.com/MarcTimperley/eplate/commits/master)
+[![pipeline status](https://github.com/MarcTimperley/dashboard/badges/master/pipeline.svg)](https://gitlab.com/MarcTimperley/dashboard/commits/master)
 
-# Demo
-
-
+![Dashboard screenshot](./dashboard.png)
 
 ## Getting Started
 
@@ -92,6 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [X] Display current alerts on dashboard
 - [X] Build UI for alerts
 - [ ] Write alerts to database
+- [ ] Set up deployment pipeline
  
 
 ## Acknowledgments
