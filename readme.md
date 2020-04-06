@@ -2,7 +2,6 @@
 Performance measurement dashboard with configurable metrics and end-point monitoring. Ideally suited to API microservices.
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-[![pipeline status](https://github.com/MarcTimperley/dashboard/badges/master/pipeline.svg)](https://gitlab.com/MarcTimperley/dashboard/commits/master)
 
 ![Dashboard screenshot](./dashboard.png)
 
