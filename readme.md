@@ -3,7 +3,7 @@ Performance measurement dashboard with configurable metrics and end-point monito
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-![Dashboard screenshot](dashboard.png)
+<img alt="Dashboard Screenshot" src="./dashboard.png">
 
 ## Getting Started
 
