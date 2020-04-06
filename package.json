@@ -3,11 +3,11 @@
   "version": "1.0.6",
   "description": "",
   "main": "index.js",
+  "keywords": ["performance", "response times", "microservices", "dashboard", "http response", "metrics", "charting"],
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
