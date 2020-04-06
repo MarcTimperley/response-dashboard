@@ -1,8 +1,8 @@
 {
-  "name": "dashboard",
+  "name": "response-dashboard",
   "version": "1.0.1",
   "description": "",
-  "main": "dashboard.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
