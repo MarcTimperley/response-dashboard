@@ -15,7 +15,7 @@ Performance measurement dashboard with configurable metrics and end-point monito
 
 ### Prerequisites
 
-- node 8.x +
+- node 10.x +
 - npm 6.x +
 
 ### Configuring measurements.json
@@ -36,7 +36,7 @@ Performance measurement dashboard with configurable metrics and end-point monito
 
     "url": "/api/proxy/url?url=http://designs94.com", // url to call
 
-    "value": "response", // value to get from JSON response [optional]
+    "value": "response", // value to get from JSON response [optional] [default: response time, ms]
 
     "chartType": "spark", // 'spark' line or 'gauge'
     
