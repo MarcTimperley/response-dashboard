@@ -1,9 +1,17 @@
 {
   "name": "response-dashboard",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
-  "keywords": ["performance", "response times", "microservices", "dashboard", "http response", "metrics", "charting"],
+  "keywords": [
+    "performance",
+    "response times",
+    "microservices",
+    "dashboard",
+    "http response",
+    "metrics",
+    "charting"
+  ],
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
