@@ -49,6 +49,7 @@ jobs:
           git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/response-dashboard
           npm version patch
           git commit -m "version patch"
+          git push origin master
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
