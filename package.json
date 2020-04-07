@@ -1,7 +1,7 @@
 {
   "name": "response-dashboard",
   "version": "1.0.7",
-  "description": "",
+  "description": "Performance measurement dashboard with configurable metrics and end-point monitoring. Ideally suited to API microservices.",
   "main": "index.js",
   "keywords": [
     "performance",
@@ -16,8 +16,11 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
-  "author": "",
+  "author": "marctimperley@yahoo.co.uk",
   "license": "ISC",
+  "publishConfig": {
+    "registry":"https://github.com/MarcTimperley/response-dashboard.git"
+  },
   "dependencies": {
     "got": "^10.7.0"
   },
