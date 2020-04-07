@@ -50,8 +50,7 @@ patch:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-
-  publish-npm:
+publish-npm:
     needs: patch
     runs-on: ubuntu-latest
     steps:
