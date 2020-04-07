@@ -10,19 +10,19 @@ on:
     branches: [ master ]
 
 jobs:
-  pre: 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run a multi-line script
-      run: |
-        echo Hello Action!
-    - name: git status
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      run: |
+  #pre: 
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #  - uses: actions/checkout@v2
+  #  - name: Run a multi-line script
+  #    run: |
+  #      echo Hello Action!
+  #  - name: git status
+  #    env:
+  #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+  #    run: |
         
-  build:
+  build and version patch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -37,6 +37,7 @@ jobs:
           git config --global user.name "MarcTimperley"
           git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/response-dashboard
           npm version patch
+          git commit -m "version patch"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
