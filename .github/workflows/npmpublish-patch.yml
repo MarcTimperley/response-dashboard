@@ -31,8 +31,9 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-     
-patch:
+      - run: npm test
+          
+  patch:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +52,7 @@ patch:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-publish-npm:
+  publish-npm:
     needs: patch
     runs-on: ubuntu-latest
     steps:
