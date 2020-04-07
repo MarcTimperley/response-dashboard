@@ -33,7 +33,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: npm version patch
-      - run: | 
+        run: | 
           git config --global credential.helper 'cache --timeout=3600'
           git config --global user.email "marctimperley@yahoo.co.uk"
           git config --global user.name "MarcTimperley"
