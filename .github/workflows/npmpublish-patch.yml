@@ -49,20 +49,22 @@ jobs:
           git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/MarcTimperley/response-dashboard
           npm version patch
           git push origin master
+      - run: npm publish
         #run: git commit -m "version patch"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-  publish-npm:
-    needs: patch
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
-        env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  #publish-npm:
+   # needs: patch
+    #runs-on: ubuntu-latest
+    #steps:
+     # - uses: actions/checkout@v2
+     # - uses: actions/setup-node@v1
+     #   with:
+     #     node-version: 12
+     #     registry-url: https://registry.npmjs.org/
+     # - run: npm ci
+     # - run: npm publish
+     #   env:
+     #     NODE_AUTH_TOKEN: ${{secrets.npm_token}}
