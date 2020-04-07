@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "start": "node index.js",
-    "test": "jest"
+    "test": "jest --maxWorkers=1 --testTimeout=30000"
   },
   "author": "marctimperley@yahoo.co.uk",
   "license": "ISC",

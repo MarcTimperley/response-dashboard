@@ -3,12 +3,11 @@ describe('response', () => {
   test('should return number', async() => {
     const url = 'https://csrng.net/csrng/csrng.php?min=0&max=100'
     const response = await fn(url)
-    console.log(response)
     expect(response.random).toBeGreaterThan(0)
     expect(response.random).toBeLessThan(100)
   })
 })
-describe('response', () => {
+describe.skip('response', () => {
   test('should return number - long url', async() => {
     const url = 'url=https://csrng.net/csrng/csrng.php?min=0&max=100'
     const response = await fn(url)
