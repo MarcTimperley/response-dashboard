@@ -21,29 +21,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       run: |
-        git config --global credential.helper 'cache --timeout=3600'
-        echo "===========   ENV ============"
-        env
-        echo "===========   LS ============"
-        ls -lth
-        echo "$(date): $(whoami)Test: ${GITHUB_REPOSITORY}" >> .github/test.log
-        echo "===========   git config ============"
-        git config -l
-        echo "===========   git status ============"
-        git checkout -b test
-        git status
-        echo "===========   git config email ============"
-        git config --global user.email "marctimperley@yahoo.co.uk"
-        echo "===========   git config name ============"
-        git config --global user.name "MarcTimperley"
-        echo "===========   git add  ============"
-        git add .github/test.log -f
-        echo -e " git remote :\n $(git remote -v)"
-        echo -e " git branch :\n $(git branch -v)"
-        echo "===========   git commit ============"
-        git commit -m "just test"
-        echo "===========   git push ============"
-        git subtree push --prefix=.github https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        
   build:
     runs-on: ubuntu-latest
     steps:
@@ -52,9 +30,13 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/response-dashboard
-      - run: npm version patch
       - run: npm test
+      - run: | 
+          git config --global credential.helper 'cache --timeout=3600'
+          git config --global user.email "marctimperley@yahoo.co.uk"
+          git config --global user.name "MarcTimperley"
+          git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/response-dashboard
+          npm version patch
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
