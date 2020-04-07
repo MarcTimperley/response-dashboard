@@ -1,5 +1,5 @@
 const proxy = require('../lib/api/proxy/url')
-describe('response', () => {
+describe.skip('response', () => {
   test('simple proxy', async() => {
     const url = 'url=http://designs94.com'
     const response = await proxy(url)
