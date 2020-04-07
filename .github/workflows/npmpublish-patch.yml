@@ -48,7 +48,6 @@ jobs:
           git config --global user.name "MarcTimperley"
           git remote set-url --push origin https://MarcTimperley:$GITHUB_TOKEN@github.com/MarcTimperley/response-dashboard
           npm version patch
-          git commit -m "version patch"
           git push origin master
         #run: git commit -m "version patch"
         env:
