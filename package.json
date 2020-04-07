@@ -16,14 +16,6 @@
     "start": "node index.js",
     "test": "jest"
   },
-  "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ]
-  },
   "author": "marctimperley@yahoo.co.uk",
   "license": "ISC",
   "repository": "https://github.com/MarcTimperley/response-dashboard.git",
