@@ -1,6 +1,6 @@
 {
   "name": "response-dashboard",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Performance measurement dashboard with configurable metrics and end-point monitoring. Ideally suited to API microservices.",
   "main": "index.js",
   "keywords": [
