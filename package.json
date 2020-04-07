@@ -14,7 +14,15 @@
   ],
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ]
   },
   "author": "marctimperley@yahoo.co.uk",
   "license": "ISC",

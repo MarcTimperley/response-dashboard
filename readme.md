@@ -65,7 +65,7 @@ To run the tests, jest must be installed.
 
 You are _strongly_ encouraged to write your own tests for any functionality and routes you develop. Check `__tests__/example.test.js` for an example.
 
-## Contributing and Code of Conduct
+## Contributing and Code of Conduct [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MarcTimperley/response-dashboard/issues)
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on the code of conduct, and the process for submitting pull requests.
 
@@ -81,10 +81,10 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - [ ] Add css/scss
 - [ ] Build interval per measurement
-- [ ] Build all test cases
+- [X] Build all test cases
 - [ ] Add security to web server front end
-- [ ] Improve automation
-- [ ] Test coverage
+- [X] Improve automation
+- [X] Test coverage
 - [ ] Build admin UI
 - [X] Move measurement config to JSON file
 - [X] Display current alerts on dashboard
@@ -96,3 +96,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 *
+
+[![https://nodei.co/npm/response-dashboard.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/response-dashboard.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/response-dashboard)
