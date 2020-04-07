@@ -18,9 +18,7 @@
   },
   "author": "marctimperley@yahoo.co.uk",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://github.com/MarcTimperley/response-dashboard.git"
-  },
+  "repository": "https://github.com/MarcTimperley/response-dashboard.git",
   "dependencies": {
     "got": "^10.7.0"
   },
