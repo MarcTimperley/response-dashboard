@@ -4,7 +4,7 @@ Performance measurement dashboard with configurable metrics and end-point monito
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 ![Node.js Package](https://github.com/MarcTimperley/response-dashboard/workflows/Node.js%20Package/badge.svg)
 
-<img alt="Dashboard Screenshot" src="https://raw.githubusercontent.com/MarcTimperley/response-dashboard/master/dashboard.png">
+<img alt="Dashboard Screenshot" src="https://raw.githubusercontent.com/MarcTimperley/response-dashboard/master/response-dashboard-anim.gif">
 
 ## Getting Started
 
@@ -90,7 +90,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [X] Display current alerts on dashboard
 - [X] Build UI for alerts
 - [ ] Write alerts to database
-- [ ] Set up deployment pipeline
+- [X] Set up deployment pipeline
  
 
 ## Acknowledgments
