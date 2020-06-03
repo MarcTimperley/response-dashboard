@@ -71,7 +71,7 @@ The application relies on `got`. There are no other dependencies.
 
 ### Documentation
 
-Documentation is available at './docs/response-dashboard/1.0.13/index.html'
+Documentation is available at './docs/response-dashboard/1.0.16/index.html'
 
 ## Contributing and Code of Conduct [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MarcTimperley/response-dashboard/issues)
 

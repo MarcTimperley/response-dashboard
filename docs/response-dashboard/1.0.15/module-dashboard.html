@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>dashboard - Documentation</title>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <span class="navicon"></span>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-cpu.html">cpu</a></li><li><a href="module-dashboard.html">dashboard</a><ul class='methods'><li class='list-title'>Methods</li><li data-type='method'><a href="module-dashboard.html#~checkMeasurements">checkMeasurements</a></li><li data-type='method'><a href="module-dashboard.html#~displaySpark">displaySpark</a></li><li data-type='method'><a href="module-dashboard.html#~pingServer">pingServer</a></li><li data-type='method'><a href="module-dashboard.html#~requestInterval">requestInterval</a></li><li data-type='method'><a href="module-dashboard.html#~setupDash">setupDash</a></li><li data-type='method'><a href="module-dashboard.html#~shadeBackground">shadeBackground</a></li></ul></li><li><a href="module-mem.html">mem</a></li><li><a href="module-random_number.html">random_number</a></li><li><a href="module-serveAPI.html">serveAPI</a></li><li><a href="module-serveFile.html">serveFile</a></li><li><a href="module-url.html">url</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">dashboard</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    <span class="creds">
+      
+
+      
+    </span>
+
+    <hr>
+
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>main script to build the UI</p></div>
+        
+
+        
+            
+
+
+
+<div class="group" id="dashboard">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line1">line 1</a></div>
+
+
+</div>
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~checkMeasurements">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>checkMeasurements</b><span class="signature">(<span class="sig-params">measurements</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>get the measurements for each service</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">measurements</span><span class="type"><span class="param-type">:object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>details of the service to measure</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line82">line 82</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~displaySpark">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>displaySpark</b><span class="signature">(<span class="sig-params">server<span class="params-divider">, </span>x<span class="params-divider">, </span>line</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>display a spark line moving through the dashboard panel</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">server</span><span class="type"><span class="param-type">:object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>service being measured</p></div>
+
+    
+
+    
+        <span class="name">x</span><span class="type"><span class="param-type">:number</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>x-axis value of the data</p></div>
+
+    
+
+    
+        <span class="name">line</span><span class="type"><span class="param-type">:number</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>y-axis value</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line138">line 138</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~pingServer">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>pingServer</b><span class="signature">(<span class="sig-params">server</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>measure the server response</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">server</span><span class="type"><span class="param-type">:object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>details for measurement</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line91">line 91</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~requestInterval">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>requestInterval</b><span class="signature">(<span class="sig-params">fn<span class="params-divider">, </span>delay<span class="params-divider">, </span>measurements</span>)</span><span class="type-signature">:object</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>repeat calculation of values</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">fn</span><span class="type"><span class="param-type">:function</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>callback function</p></div>
+
+    
+
+    
+        <span class="name">delay</span><span class="type"><span class="param-type">:integer</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>pause duration</p></div>
+
+    
+
+    
+        <span class="name">measurements</span><span class="type"><span class="param-type">:object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>services being measured</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">:object</span>
+    </dd>
+</dl>
+
+<div class="param-desc">
+    <p>handle</p>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line159">line 159</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~setupDash">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>setupDash</b><span class="signature">(<span class="sig-params">measurements</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>setupDash</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">measurements</span><span class="type"><span class="param-type">:object</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>metric for adding to the dashboard</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line41">line 41</a></div>
+
+
+</div>
+
+        
+            
+
+
+    
+
+
+<div class="group" id="~shadeBackground">
+
+
+    <h4 class="name"><span class="type-signature">(inner) </span><b>shadeBackground</b><span class="signature">(<span class="sig-params">percent</span>)</span><span class="type-signature">:string</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>apply a background colour (green to red) depending on results</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters</h5>
+    
+
+<div class="params">
+    
+
+    
+        <span class="name">percent</span><span class="type"><span class="param-type">:number</span></span>
+    
+
+    
+
+    
+
+    <div class="description last"><p>percent of threshold</p></div>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        <span class="param-type">:string</span>
+    </dd>
+</dl>
+
+<div class="param-desc">
+    <ul>
+<li>colour to apply to background in HSL space</li>
+</ul>
+</div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+<div class="src">Source: <a href="dashboard.js.html">dashboard.js</a>, <a href="dashboard.js.html#line185">line 185</a></div>
+
+
+</div>
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc" target="_blank">JSDoc 3.6.4</a> on 6/3/2020 using the <a href="https://github.com/Grafluxe/boxy-jsdoc-template" target="_blank">boxy-jsdoc-template</a> theme.
+</footer>
+
+<script src="scripts/prettify/prettify.js"></script>
+<script src="scripts/prettify/lang-css.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>
