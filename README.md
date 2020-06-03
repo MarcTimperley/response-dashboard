@@ -57,13 +57,21 @@ Performance measurement dashboard with configurable metrics and end-point monito
  - Change the links in this readme.md file as required
  - Configure the measurements.json as needed
  
-## Running the tests
+### Running the tests
 
 To run the tests, jest must be installed.
 
 - run `npm test` to execute the tests. Shipped tests include validation that routes are loaded and the application has been built correctly.
 
 You are _strongly_ encouraged to write your own tests for any functionality and routes you develop. Check `__tests__/example.test.js` for an example.
+
+### Dependencies
+
+The application relies on `got`. There are no other dependencies.
+
+### Documentation
+
+Documentation is available at './docs/response-dashboard/1.0.13/index.html'
 
 ## Contributing and Code of Conduct [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/MarcTimperley/response-dashboard/issues)
 
@@ -91,6 +99,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [X] Build UI for alerts
 - [ ] Write alerts to database
 - [X] Set up deployment pipeline
+- [X] Complete documentation
  
 
 ## Acknowledgments
