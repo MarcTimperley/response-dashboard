@@ -5,16 +5,16 @@
 /* jslint browser: true, devel: true, node: true */
 /* global $, Gauge, d3 */
 
-let gauge = {}
-let graph = {}
+const gauge = {}
+const graph = {}
 const width = 160
 const height = 140
-const interval = 5000
+const interval = 5000 // interval for checking in seconds
 let x
 let y
 let line
-let alerts = []
-let alertsCurrent = {}
+const alerts = []
+const alertsCurrent = {}
 
 /**
  * setup - self-invoking function
@@ -63,7 +63,7 @@ const setupDash = (measurements) => {
     } else if (chartType === 'spark') {
       $('#' + location).append(`<div id="${location}spark" class="aGraph"></div>`)
       graph[location] = d3.select('#' + location + 'spark').append('svg:svg').attr('width', width + 'px').attr('height', height + 'px')
-      let data = currentServer.data
+      const data = currentServer.data
       x = d3.scaleLinear().domain([0, width / 2 - 2]).range([-2, width]) // starting point is -5 so the first value doesn't show and slides off the edge as part of the transition
       y = d3.scaleLinear().domain([-10, max]).range([height, 0])
       line = d3.line()
@@ -105,7 +105,7 @@ const pingServer = (server) => {
       }
       $('#' + location).css('background-color', shadeBackground(result / threshold))
       if (result > threshold) {
-        let alert = { type: 'alert', measure: name, value: result + unit, threshold: threshold + unit }
+        const alert = { type: 'alert', measure: name, value: result + unit, threshold: threshold + unit }
         if (!alertsCurrent[name]) alertsCurrent[name] = { startTime: new Date() }
         alerts.unshift(alert)
         $('#alertsRecent').prepend(`<div class="threshold threshold-recent">${new Date().toLocaleString()}: ${name} - ${result + unit} (>${threshold + unit})</div>`)
@@ -113,7 +113,7 @@ const pingServer = (server) => {
         if (alertsCurrent[name]) delete alertsCurrent[name]
       }
       let alertsCurrentHTML = ''
-      for (let [i, v] of Object.entries(alertsCurrent)) {
+      for (const [i, v] of Object.entries(alertsCurrent)) {
         const duration = Math.floor((new Date() - v.startTime) / 1000)
         alertsCurrentHTML += `<div class="threshold threshold-current">${i} ${duration.toLocaleString()}s</div>`
       }
@@ -163,7 +163,7 @@ const requestInterval = (fn, delay, measurements) => {
     }
   })()
   let start = new Date()
-  let handle = {}
+  const handle = {}
   const loop = () => {
     handle.value = requestAnimFrame(loop)
     const delta = new Date() - start

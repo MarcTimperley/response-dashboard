@@ -32,35 +32,16 @@
   },
   {
     "name": "node mem",
-    "location": "board6",
+    "location": "board4",
     "url": "../api/measurements/mem",
     "chartType": "gauge",
     "value": "osUsed",
     "unit": "%",
     "max": "120"
   },
-  {
-    "name": "designs94.com",
-    "location": "board3",
-    "url": "/api/proxy/url?url=http://designs94.com",
-    "value": "response",
-    "chartType": "gauge",
-    "max": 300,
-    "threshold": 100
-  },
-  {
-    "name": "designs94.com spark",
-    "location": "board4",
-    "url": "/api/proxy/url?url=http://designs94.com",
-    "value": "response",
-    "chartType": "spark",
-    "max": 300,
-    "threshold": 100,
-    "data": []
-  },
-  {
+    {
     "name": "marctimperley.com",
-    "location": "board7",
+    "location": "board3",
     "url": "/api/proxy/url?url=http://marctimperley.com",
     "value": "response",
     "chartType": "spark",

@@ -8,6 +8,8 @@ Performance measurement dashboard with configurable metrics and end-point monito
 
 ## Getting Started
 
+**IMPORTANT** This should only be used to monitor servers and services that you have responsibility for.
+
   1. Clone or download the project
   2. Modify the `measurements.json` as required (see below)
   3. Run `npm install` to get all the dependencies

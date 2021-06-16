@@ -1,16 +1,16 @@
 module.exports = {
-  'extends': ['standard'],
+  extends: ['standard'],
   rules: {
     'space-before-function-paren': ['error', 'never'],
     'no-labels': ['error', {
-      'allowLoop': true
+      allowLoop: true
     }]
   },
-  'plugins': [],
-  'env': {
-    'browser': true,
-    'node': true,
-    'jquery': true,
-    'jest': true
+  plugins: [],
+  env: {
+    browser: true,
+    node: true,
+    jquery: true,
+    jest: true
   }
 }
