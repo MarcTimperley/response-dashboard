@@ -9,7 +9,7 @@ const gauge = {}
 const graph = {}
 const width = 160
 const height = 140
-const interval = 5000 // interval for checking in seconds
+const interval = 30000 // interval for checking in milliseconds
 let x
 let y
 let line
