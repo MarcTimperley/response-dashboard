@@ -18,8 +18,8 @@ Performance measurement dashboard with configurable metrics and end-point monito
 
 ### Prerequisites
 
-- node 10.x +
-- npm 6.x +
+- node 12.x +
+- npm 7.x +
 
 ### Configuring measurements.json
 
@@ -42,11 +42,11 @@ Performance measurement dashboard with configurable metrics and end-point monito
     "value": "response", // value to get from JSON response [optional] [default: response time, ms]
 
     "chartType": "spark", // 'spark' line or 'gauge'
-    
+
     "max": 300, // upper limit of chart [optional] [default:100]
-    
+ 
     "threshold": 250, // alerting threshold [optional] [default:100]
-    
+
     "data": [] //required for chartType = spark
 
 
@@ -92,7 +92,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [ ] Add css/scss
 - [ ] Build interval per measurement
 - [X] Build all test cases
-- [ ] Add security to web server front end
+- [ ] Improve security to web server front end
 - [X] Improve automation
 - [X] Test coverage
 - [ ] Build admin UI
@@ -102,7 +102,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [ ] Write alerts to database
 - [X] Set up deployment pipeline
 - [X] Complete documentation
- 
 
 ## Acknowledgments
 
